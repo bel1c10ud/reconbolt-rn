@@ -1,6 +1,6 @@
+import AcountInfomation from "@/components/AcountInfomation";
 import ThemedSafeAreaView from "@/components/ThemedSafeAreaView";
 import ThemedText from "@/components/ThemedText";
-import UserInfomation from "@/components/UserInfomation";
 import { useAuthStore } from "@/store";
 import CookieManager from "@react-native-cookies/cookies";
 import { useRouter } from "expo-router";
@@ -38,12 +38,8 @@ export default function Setting() {
   return (
     <ThemedSafeAreaView style={styles.container}>
       <ThemedText style={styles.header}>설정</ThemedText>
-
-
-
       <View style={styles.content}>
-        <UserInfomation />
-
+        <AcountInfomation />
         {accessToken ? (
         <Button title="로그아웃" onPress={handleLogout} />
       ) : (
@@ -70,8 +66,5 @@ const styles = StyleSheet.create({
     flex:1,
     gap: 16,
     marginTop: 18
-    // display: "flex",
-    // justifyContent: "center",
-    // alignItems: "center"
   }
 })

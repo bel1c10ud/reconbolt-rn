@@ -6,7 +6,7 @@ import { useMemo } from "react";
 import { StyleSheet, useColorScheme, View } from "react-native";
 import ThemedText from "./ThemedText";
 
-export default function UserInfomation() {
+export default function AcountInfomation() {
   const isDark = useColorScheme() === "dark";
 
   const accessToken = useAuthStore((state) => state.accessToken);
@@ -26,11 +26,12 @@ export default function UserInfomation() {
 
   return (
     <View style={[styles.container, { backgroundColor: isDark ? COLOR.DARK.GRAY[200] : "#f2f2f2" }]}>
+      <ThemedText>계정 정보</ThemedText>
       {accessToken && idToken && gamename && tagline ? (
-        <>
+        <View style ={styles.username}>
           <ThemedText style={styles.label} color={600}>{gamename}</ThemedText>
           <ThemedText style={styles.label} color={600}>#{tagline}</ThemedText>
-        </>
+        </View>
       ) : (
         <ThemedText style={styles.label} color={600}>로그인이 필요합니다.</ThemedText>
       )}
@@ -40,13 +41,16 @@ export default function UserInfomation() {
 
 const styles = StyleSheet.create({
   container: { 
-    display: "flex", 
-    flexDirection: "row", 
+    gap: 8, 
     padding: 24, 
     borderRadius: 16, 
   },
+  username: {
+    display: "flex", 
+    flexDirection: "row", 
+  },
   label: { 
     fontSize: 16, 
-    fontWeight: "500",
+    fontWeight: "700",
   },
 });
