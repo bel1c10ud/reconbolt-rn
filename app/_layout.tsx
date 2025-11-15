@@ -13,7 +13,7 @@ export default function RootLayout() {
       headerShown: false, 
       headerTintColor: isDark ? COLOR.DARK.GRAY[900] : COLOR.LIGHT.GRAY[900],
       headerStyle: {
-        backgroundColor: isDark ? COLOR.DARK.GRAY[50] : COLOR.LIGHT.GRAY[50],
+        backgroundColor: isDark ? COLOR.DARK.GRAY[100] : COLOR.LIGHT.GRAY[100],
       },
     }}>
       <Stack.Screen
