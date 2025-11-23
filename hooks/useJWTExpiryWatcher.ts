@@ -37,7 +37,6 @@ export default function useJWTExpiryWatcher() {
       const isAccessTokenExpired = tokenExpiryChecker(accessToken, now);
       if (!isAccessTokenExpired) {
         setAccessToken(null);
-        console.log("clear access_token", now);
       }
     }
 
@@ -45,7 +44,6 @@ export default function useJWTExpiryWatcher() {
       const isIdTokenExpired = tokenExpiryChecker(idToken, now);
       if (!isIdTokenExpired) {
         setIdToken(null);
-        console.log("clear id_token", now);
       }
     }
   }, [accessToken, idToken, now, setAccessToken, setIdToken]);
