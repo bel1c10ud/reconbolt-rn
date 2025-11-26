@@ -2,7 +2,7 @@ import RequiredLoginCallout from "@/components/RequiredLoginCallout";
 import SpinnerOverlay from "@/components/SpinnerOverlay";
 import ThemedSafeAreaView from "@/components/ThemedSafeAreaView";
 import { hiddenHeaderAndFooterScriptString, WEB_ENDPOINT } from "@/constants";
-import { useAuthStore } from "@/store";
+import { useAuthStore, useLanguageStore } from "@/store";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
@@ -14,6 +14,7 @@ export default function Detail() {
 
   const accessToken = useAuthStore((state) => state.accessToken);
   const idToken = useAuthStore((state) => state.idToken);
+  const language = useLanguageStore((state) => state.language);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,10 +30,8 @@ export default function Detail() {
   };
 
   return (
-    <ThemedSafeAreaView style={styles.container} edges={['top']}>
-      {accessToken && isLoading && (
-        <SpinnerOverlay />
-      )}
+    <ThemedSafeAreaView style={styles.container} edges={["top"]}>
+      {accessToken && isLoading && <SpinnerOverlay />}
       {accessToken ? (
         <WebView
           style={styles.webview}
@@ -41,6 +40,7 @@ export default function Detail() {
             headers: {
               "x-access-token": accessToken,
               "x-id-token": idToken,
+              "x-language": language,
             },
           }}
           onLoadStart={() => setIsLoading(true)}
@@ -58,11 +58,11 @@ export default function Detail() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   webview: {
     flex: 1,
     marginTop: 50,
-    backgroundColor: "transparent"
-  }
+    backgroundColor: "transparent",
+  },
 });
