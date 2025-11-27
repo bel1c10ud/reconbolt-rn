@@ -45,13 +45,15 @@
         }
       ],
       "expo-secure-store",
-      "expo-localization",
-      {
-        "supportedLocales": {
-          "ios": ["en", "ko", "ja"],
-          "android": ["en", "ko", "ja"]
+      [
+        "expo-localization",
+        {
+          "supportedLocales": {
+            "ios": ["en", "ko", "ja"],
+            "android": ["en", "ko", "ja"]
+          }
         }
-      }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
