@@ -4,3 +4,5 @@ export type IdTokenPayload = {
     tag_line?: string;
   };
 };
+
+export type LanguageCode = "en-US" | "ko-KR" | "ja-JP";

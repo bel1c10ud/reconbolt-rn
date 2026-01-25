@@ -1,3 +1,5 @@
+import { LanguageCode } from "./types";
+
 export const WEB_ENDPOINT = "https://reconbo.lt";
 
 export const LOGIN_URL =
@@ -45,3 +47,24 @@ export const COLOR = {
     },
   },
 };
+
+export const LANGUAGES: {
+  code: LanguageCode;
+  name: string;
+  altName?: string;
+}[] = [
+  {
+    code: "ko-KR",
+    name: "한국어",
+    altName: "Korean",
+  },
+  {
+    code: "en-US",
+    name: "English",
+  },
+  {
+    code: "ja-JP",
+    name: "日本語",
+    altName: "Japanese",
+  },
+] as const;
